@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 require_once('../Model/pdo.php');
 
-$id = isset($_GET['id']);
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 try {
     $verif_etudiant = $dbPDO->prepare("SELECT id FROM etudiants WHERE id = :id");

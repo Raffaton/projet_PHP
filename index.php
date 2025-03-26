@@ -30,6 +30,76 @@ try {
     <head>
         <meta charset="UTF-8">
         <title>Liste des Étudiants, Classes et Professeurs</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 20px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            th,
+            td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            tr:hover {
+                background-color: #f5f5f5;
+            }
+
+            form {
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+
+            input[type="text"],
+            select {
+                width: 100%;
+                padding: 8px;
+                margin: 8px 0;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            a {
+                color: #4CAF50;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
     </head>
 
     <body>
