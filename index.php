@@ -98,7 +98,19 @@ try {
             <button type="submit">Valider</button>
         </div>
     </form>
-</div>
+    
+    <h2>Ajout d'un nouvel élève</h2>
+    <form action="Views/nouvel_etudiant.php" method="POST">
+        <div>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <button type="submit">Valider</button>
+    </form>
 
 </body>
 </html>
