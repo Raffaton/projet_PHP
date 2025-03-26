@@ -109,6 +109,17 @@ try {
             <label for="prenom">Prénom :</label>
             <input type="text" id="prenom" name="prenom" required>
         </div>
+        <div>
+            <label for="classe">Classe :</label>
+            <select id="classe" name="classe_id" required>
+                <?php
+                $classes = $dbPDO->query("SELECT id, libelle FROM classes");
+                foreach ($classes as $classe) {
+                    echo '<option value="' . $classe['id'] . '">' . $classe['libelle'] . '</option>';
+                }
+                ?>
+            </select>
+        </div>
         <button type="submit">Valider</button>
     </form>
 

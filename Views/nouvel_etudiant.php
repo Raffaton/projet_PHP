@@ -4,24 +4,24 @@ error_reporting(E_ALL);
 
 require_once('../Model/pdo.php');
 
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
+$nom = htmlspecialchars($_POST['nom']);
+$prenom = htmlspecialchars($_POST['prenom']);
+$classe_id = (int)$_POST['classe_id'];
 
-if (isset($nom) && isset($prenom)) {
-    try {
-        $sql = "INSERT INTO etudiants (nom, prenom, classe_id) VALUES (:nom, :prenom, 1)";
-        $stmt = $dbPDO->prepare($sql);
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
+try {
+    $sql = "INSERT INTO etudiants (nom, prenom, classe_id) 
+            VALUES (:nom, :prenom, :classe_id)";
 
-        if ($stmt->execute()) {
-            echo "</br>L'élève a été ajouté avec succès !";
-        }
-    } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
-    }
-} else {
-    echo "Tous les champs doivent être remplis.";
+    $stmt = $dbPDO->prepare($sql);
+    $stmt->execute([
+        ':nom' => $nom,
+        ':prenom' => $prenom,
+        ':classe_id' => $classe_id
+    ]);
+
+    echo "</br>Élève ajouté avec succès !";
+} catch (PDOException $e) {
+    echo "Erreur lors de l'ajout : " . $e->getMessage();
 }
 
 ?>
