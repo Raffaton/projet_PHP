@@ -50,6 +50,7 @@ try {
                         <td><?= $student['classe'] ?></td>
                         <td>
                             <a href="Views/modif_etudiant.php?id=<?= $student['id'] ?>">Modifier</a>
+                            <a href="Views/suppression_etudiant.php?id=<?= $student['id'] ?>">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
