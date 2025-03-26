@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../Model/style.css">
+
 <?php
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -27,4 +29,4 @@
     
 ?>
 </br>
-<a href="../index.php">Retour à l'acceuil</a>
+<a href="login_page.php">Retour à l'acceuil</a>

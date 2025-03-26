@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require_once(__DIR__ . '/Model/pdo.php');
+require_once('../Model/pdo.php');
 
 try {
     $requete_etudiant = $dbPDO->query("
@@ -30,11 +30,11 @@ try {
     <head>
         <meta charset="UTF-8">
         <title>Liste des Étudiants, Classes et Professeurs</title>
-        <link rel="stylesheet" href="Model/style.css">
+        <link rel="stylesheet" href="../Model/style.css">
     </head>
 
     <body>
-        <a href="Views/login.php">Connexion</a>|<a href="Views/register.php">Inscription</a>
+        <a href="logout.php">Déconnexion</a>
         <h2>Liste des Étudiants</h2>
         <table>
             <thead>
@@ -50,6 +50,10 @@ try {
                         <td><?= $student['nom'] ?></td>
                         <td><?= $student['prenom'] ?></td>
                         <td><?= $student['classe'] ?></td>
+                        <td>
+                            <a href="modif_etudiant.php?id=<?= $student['id'] ?>">Modifier</a>
+                            <a href="suppression_etudiant.php?id=<?= $student['id'] ?>">Supprimer</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -92,8 +96,34 @@ try {
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <h2>Ajout de matiere</h2>
+        <form action="nouvelle_matiere.php" method="POST">
+            <div>
+                <label for="libelle">Libellé:</label>
+                <input type="text" id="libelle" name="libelle" required>
+            </div>
+            <button type="submit">Valider</button>
+            </div>
+        </form>
+
+        <h2>Ajout d'un nouvel élève</h2>
+        <form action="nouvel_etudiant.php" method="POST">
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <button type="submit">Valider</button>
+        </form>
+
     </body>
+
     </html>
+
 <?php
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();

@@ -1,4 +1,14 @@
+<link rel="stylesheet" href="../Model/style.css">
+
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../index.php');
+    exit();
+}
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once('../Model/pdo.php');
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -27,7 +37,7 @@ try {
             ':id' => $id
         ]);
 
-        header('Location: ../index.php');
+        header('Location: login_page.php');
         exit();
     }
 } catch (PDOException $e) {
@@ -40,43 +50,3 @@ try {
     <input type="text" name="prenom" value="<?= $etudiant['prenom'] ?>" required>
     <button type="submit">Valider</button>
 </form>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 40px auto;
-        padding: 20px;
-    }
-
-    form {
-        background: #f9f9f9;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-    a {
-        display: inline-block;
-        margin-top: 20px;
-        color: #4CAF50;
-    }
-</style>
