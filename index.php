@@ -1,2 +1,8 @@
-<?php $content = ob_get_clean(); ?>
-<?php require('../exo9-tp/Model/pdo.php'); ?>
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+require_once(__DIR__ . '/Model/pdo.php');
+?>
+
+
