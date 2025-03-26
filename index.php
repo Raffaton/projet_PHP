@@ -88,6 +88,18 @@ try {
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <h2>Ajout de matiere</h2>
+    <form action="Views/nouvelle_matiere.php" method="POST">
+        <div>
+            <label for="libelle">Libellé:</label>
+            <input type="text" id="libelle" name="libelle" required>
+        </div>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
 
